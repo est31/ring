@@ -23,6 +23,11 @@ use untrusted;
 
 mod padding;
 
+#[cfg(feature = "rsa_keygen")]
+pub mod key_generation;
+#[cfg(feature = "rsa_keygen")]
+mod small_primes;
+
 // `RSA_PKCS1_SHA1` is intentionally not exposed.
 pub use self::padding::RSAEncoding;
 
