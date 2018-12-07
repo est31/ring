@@ -24,7 +24,7 @@ use untrusted;
 mod padding;
 
 #[cfg(feature = "rsa_keygen")]
-pub mod key_generation;
+pub use self::bigint::key_generation;
 #[cfg(feature = "rsa_keygen")]
 mod small_primes;
 
