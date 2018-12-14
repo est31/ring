@@ -74,7 +74,6 @@ pub fn limbs_less_than_limbs_consttime(a: &[Limb], b: &[Limb]) -> LimbMask {
     unsafe { LIMBS_less_than(a.as_ptr(), b.as_ptr(), b.len()) }
 }
 
-#[cfg(feature = "rsa_keygen")]
 pub fn limbs_odd_sub_one(r: &mut [Limb]) {
     extern "C" {
         fn LIMBS_odd_sub_one(r: *mut Limb, num_limbs: c::size_t);
@@ -82,7 +81,6 @@ pub fn limbs_odd_sub_one(r: &mut [Limb]) {
     unsafe { LIMBS_odd_sub_one(r.as_mut_ptr(), r.len()) }
 }
 
-#[cfg(feature = "rsa_keygen")]
 pub fn limbs_even_add_one(r: &mut [Limb]) {
     extern "C" {
         fn LIMBS_even_add_one(r: *mut Limb, num_limbs: c::size_t);
@@ -90,7 +88,6 @@ pub fn limbs_even_add_one(r: &mut [Limb]) {
     unsafe { LIMBS_even_add_one(r.as_mut_ptr(), r.len()) }
 }
 
-#[cfg(feature = "rsa_keygen")]
 pub fn limbs_count_low_zero_bits(v: &[Limb]) -> u16 {
     extern "C" {
         fn BN_count_low_zero_bits(bn: *const Limb, num_limbs: c::size_t) -> c::int;
@@ -99,8 +96,6 @@ pub fn limbs_count_low_zero_bits(v: &[Limb]) -> u16 {
     r as u16
 }
 
-
-#[cfg(feature = "rsa_keygen")]
 pub fn limbs_secret_rshift(r: &mut [Limb], n: u16) {
     extern "C" {
         fn bn_rshift_secret_shift(r: *mut Limb, n: c::uint, tmp: *mut Limb, num_limbs: c::size_t);

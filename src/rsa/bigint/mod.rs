@@ -40,7 +40,6 @@
 
 #![allow(box_pointers)]
 
-#[cfg(feature = "rsa_keygen")]
 pub mod key_generation;
 
 use crate::{
